@@ -1,50 +1,70 @@
 <template>
   <div>
-    <v-form @submit.prevent="addTask">
-      <v-container>
-        <v-row align="center" justify="center">
-          <v-col cols="6">
-            <v-text-field
-              v-model="newTask"
-              label="Nueva tarea"
-              filled
-              solo
-            ></v-text-field>
-          </v-col>
-          <v-col cols="2">
-            <v-btn type="submit" color="primary" class="add-button">
-              Agregar
+    <v-list>
+      <v-list-item
+        v-for="(task, index) in tasks"
+        :key="index"
+      >
+        <v-list-item-content>
+          {{ task }}
+        </v-list-item-content>
+        <v-list-item-action>
+          <div class="d-flex">
+            <v-btn class="mr-2" @click="editTask(index)">
+              <v-icon>mdi-pencil</v-icon>
             </v-btn>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-form>
+            <v-btn class="mr-2" @click="archiveTask(index)">
+              <v-icon>mdi-archive</v-icon>
+            </v-btn>
+            <v-btn @click="removeTask(index)">
+              <v-icon>mdi-delete</v-icon>
+            </v-btn>
+          </div>
+        </v-list-item-action>
+      </v-list-item>
+    </v-list>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      newTask: ''
-    };
+  props: {
+    tasks: {
+      type: Array,
+      required: true
+    }
   },
   methods: {
-    addTask() {
-      if (this.newTask) {
-        this.$emit('add', this.newTask);
-        this.newTask = '';
-      }
+    editTask() {
+      // Lógica para editar una tarea
+    },
+    archiveTask() {
+      // Lógica para archivar una tarea
+    },
+    removeTask() {
+      // Lógica para eliminar una tarea
     }
   }
 };
 </script>
 
 <style scoped>
-.add-button {
-  min-width: 80px;
+.v-list-item {
+  background-color: #fff;
+  margin-bottom: 8px;
+  border-radius: 4px;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.v-btn {
+  min-width: unset;
+  padding: 4px;
 }
 </style>
+
 
 
 

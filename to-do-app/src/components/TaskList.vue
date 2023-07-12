@@ -13,6 +13,9 @@
             <v-btn class="mr-2" @click="editTask(index)">
               <v-icon>mdi-pencil</v-icon>
             </v-btn>
+            <v-btn class="mr-2" @click="archiveTask(index)">
+              <v-icon>mdi-archive</v-icon>
+            </v-btn>
             <v-btn @click="removeTask(index)">
               <v-icon>mdi-delete</v-icon>
             </v-btn>
@@ -34,6 +37,9 @@ export default {
   methods: {
     editTask() {
       // Lógica para editar una tarea
+    },
+    archiveTask() {
+      // Lógica para archivar una tarea
     },
     removeTask() {
       // Lógica para eliminar una tarea
@@ -58,7 +64,6 @@ export default {
   padding: 4px;
 }
 </style>
-
 
 
 
