@@ -1,28 +1,58 @@
 {
   "tasks": [
     {
-      "name": "PRUEBA",
-      "person": "",
-      "status": "",
-      "id": 1
+      "id": 3,
+      "name": "REDIRECCIONAR CON EL ID DE LA TAREA, A task/edit/X NRO DE LA TAREA, QUE CARGUE LOS DATOS DE ESA TAREA",
+      "person": "Mariana",
+      "status": "New"
     },
     {
-      "name": "PRUEBA 2",
-      "person": "",
-      "status": "",
-      "id": 2
+      "id": 4,
+      "name": "PERMITIR LOGUEARSE. SI NO EXISTE, ENVIAR PERSONA LOGUEADA",
+      "person": "Mariana",
+      "status": "New"
     },
     {
-      "name": "HOLA",
-      "person": "",
-      "status": "",
-      "id": 3
+      "id": 5,
+      "name": "LLENAR LISTA DESPLEGABLE CON PERSONAS DE LA API",
+      "person": "Mariana",
+      "status": "New"
     },
     {
-      "name": "hh",
+      "id": 6,
+      "name": "HACER UN PUT A LA API PARA ACTUALIZAR EL STATUS. ESTO PERMITIRA ELIMINAR O ARCHIVAR TASKS",
+      "person": "Mariana",
+      "status": "New"
+    },
+    {
+      "id": 7,
+      "name": "HACER  MULTILINE ESTE CAMPO DONDE ESCRIBO LAS TASK PORQUE SINO NO VEO LO QUE ESCRIBO",
+      "person": "Mariana",
+      "status": "New"
+    },
+    {
+      "id": 8,
+      "name": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
       "person": "",
-      "status": "",
-      "id": 4
+      "status": "New"
+    },
+    {
+      "id": 9,
+      "name": "New",
+      "person": "Mariana",
+      "status": "New"
+    },
+    {
+      "id": 10,
+      "name": "hola",
+      "person": "Mariana",
+      "status": "New"
+    },
+    {
+      "id": 11,
+      "name": "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh",
+      "person": "Mariana",
+      "status": "Done"
     }
   ]
 }

@@ -3,7 +3,7 @@
     <v-form @submit.prevent="submitTaskForm">
       <v-container>
         <v-row align="center" justify="center">
-          <v-col cols="6">
+          <v-col cols="10" sm="8" md="8">
             <v-text-field
               v-model="newTask.name"
               label="Nueva tarea"
@@ -11,7 +11,7 @@
               solo
             ></v-text-field>
           </v-col>
-          <v-col cols="2">
+          <v-col cols="2" sm="4" md="2">
             <v-btn type="submit" color="primary" class="add-button"
               >Agregar</v-btn
             >

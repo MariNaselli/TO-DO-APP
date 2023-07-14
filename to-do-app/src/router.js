@@ -3,8 +3,7 @@ import VueRouter from 'vue-router';
 
 // Importa tus componentes aquí
 import TaskList from './components/TaskList.vue';
-import TaskForm from './components/TaskForm.vue';
-import TaskCompleted from './components/TaskCompleted.vue';
+import TaskEdit from './components/TaskEdit.vue';
 
 // Instala Vue Router
 Vue.use(VueRouter);
@@ -12,16 +11,16 @@ Vue.use(VueRouter);
 // Define las rutas
 const routes = [
   {
-    path: '/',
+    path: '/task/list',
     component: TaskList
   },
   {
-    path: '/add',
-    component: TaskForm
+    path: '/task/new',
+    component: TaskEdit
   },
   {
-    path: '/completed',
-    component: TaskCompleted
+    path: '/task/:id',
+    component: TaskEdit
   }
 ];
 

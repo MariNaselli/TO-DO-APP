@@ -6,6 +6,7 @@
   
   <script>
   export default {
+    name: 'LoginComponent',
     data() {
       return {
         // Propiedades de datos del componente
