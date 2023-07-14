@@ -1,20 +1,20 @@
 <template>
   <div>
-    <v-form @submit.prevent="addTask">
+    <v-form @submit.prevent="submitTaskForm">
       <v-container>
         <v-row align="center" justify="center">
           <v-col cols="6">
             <v-text-field
-              v-model="newTask"
+              v-model="newTask.name"
               label="Nueva tarea"
               filled
               solo
             ></v-text-field>
           </v-col>
           <v-col cols="2">
-            <v-btn type="submit" color="primary" class="add-button">
-              Agregar
-            </v-btn>
+            <v-btn type="submit" color="primary" class="add-button"
+              >Agregar</v-btn
+            >
           </v-col>
         </v-row>
       </v-container>
@@ -23,20 +23,36 @@
 </template>
 
 <script>
+import api from "../api.js";
+
 export default {
   data() {
     return {
-      newTask: ''
+      newTask: {
+        name: "",
+        person: "",
+        status: "",
+      },
     };
   },
   methods: {
-    addTask() {
-      if (this.newTask) {
-        this.$emit('add', this.newTask);
-        this.newTask = '';
+    async submitTaskForm() {
+      if (this.newTask.name) {
+        try {
+          const createdTask = await api.createTask(this.newTask);
+          this.$emit("add", createdTask);
+          this.newTask = {
+            name: "",
+            person: "",
+            status: "",
+          };
+        } catch (error) {
+          console.log("Error al agregar la tarea:", error);
+          // Manejar el error según sea necesario
+        }
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -46,11 +62,3 @@ export default {
   margin-left: 8px;
 }
 </style>
-
-
-
-
-
-
-
-
