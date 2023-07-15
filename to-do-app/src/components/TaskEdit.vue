@@ -1,4 +1,5 @@
 <template>
+  <div>
   <v-form @submit.prevent="submitTask">
     <v-card class="mx-auto" max-width="500">
       <v-container>
@@ -38,40 +39,82 @@
       </v-card-actions>
     </v-card>
   </v-form>
+  <!-- Mensaje de éxito -->
+  <v-alert
+      v-if="showSuccessMessage"
+      type="success"
+      variant="outlined"
+      dismissible
+      @input="showSuccessMessage = false"
+    >
+      Task created successfully!
+    </v-alert>
+
+</div>
 </template>
 <script>
+
+import router from "../router";
 import api from "../api.js";
+import { VAlert } from 'vuetify/lib';
+
+
 export default {
   name: "TaskEdit",
-  data: () => ({
+  components: {
+    VAlert,
+  },
+  data() {
+  return {
     statusList: ["New", "Done", "Archived", "Deleted"],
     personList: ["Mariana", "Ulises", "Cataldo"],
     task: {
       id: 0,
       name: "",
       person: "",
-      status: "New",
+      status: "New", 
     },
-  }),
+    showSuccessMessage: false, // Agrega esta línea
+  };
+},
   methods: {
     async submitTask() {
+      console.log('Submit Task function called');
       if (this.task.name) {
         try {
-          const createdTask = await api.createTask(this.task);
-          this.$emit("add", createdTask);
+          if (this.task.id === 0) {
+            // Crear una nueva tarea
+            const createdTask = await api.createTask(this.task);
+            this.$emit("add", createdTask);
+            this.showSuccessMessage = true;
+            console.log('Task created successfully!');
+
+          } else {
+            // Actualizar una tarea existente
+            await api.updateTask(this.task);
+          }
           this.task = {
             id: 0,
-            name: "New",
+            name: "",
             person: "",
-            status: "",
+            status: "New",
           };
+          router.push("/task/list");
         } catch (error) {
-          console.log("Error al agregar la tarea:", error);
+          console.log("Error al guardar la tarea:", error);
           // Manejar el error según sea necesario
         }
       }
     },
   },
+  async mounted() {
+  try {
+    const taskId = this.$route.params.id;
+    this.task = await api.getTaskById(taskId);
+  } catch (error) {
+    console.log("Error al obtener la tarea:", error);
+  }
+},
 };
 </script>
 

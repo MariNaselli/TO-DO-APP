@@ -46,7 +46,8 @@ export default {
   data() {
     return {
       drawer: false,
-      username: "John Doe", // Nombre de usuario (puedes obtenerlo de la autenticación)
+      username: "John Doe",
+      
     };
   },
   methods: {

@@ -11,6 +11,10 @@ Vue.use(VueRouter);
 // Define las rutas
 const routes = [
   {
+    path: '/',
+    component: TaskEdit
+  },
+  {
     path: '/task/list',
     component: TaskList
   },
@@ -20,13 +24,16 @@ const routes = [
   },
   {
     path: '/task/:id',
-    component: TaskEdit
+    component: TaskEdit,
+    name: "EditTask"
   }
 ];
 
 // Crea la instancia del enrutador
 const router = new VueRouter({
+  mode: 'history',
   routes
 });
+
 
 export default router;
