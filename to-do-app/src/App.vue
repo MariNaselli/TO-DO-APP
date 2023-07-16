@@ -18,44 +18,53 @@
     <v-app-bar app>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>Task List</v-toolbar-title>
-      <v-menu offset-y>
-        <template v-slot:activator="{ on }">
-          <v-btn v-on="on" text class="ml-auto">
-            {{ username ? username : "Login" }}
-            <v-icon right>mdi-menu-down</v-icon>
-          </v-btn>
-        </template>
-        <v-list>
-          <v-list-item @click="logout">
-            <v-list-item-title>Logout</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+      <v-spacer></v-spacer>
+      <v-btn @click="showLoginForm = true" text>Login</v-btn>
     </v-app-bar>
 
     <v-main>
       <router-view></router-view>
     </v-main>
+
+    <v-dialog v-model="showLoginForm" max-width="400">
+      <v-card>
+        <v-card-title class="headline">Login</v-card-title>
+        <v-card-text>
+          <v-container>
+            <form @submit.prevent="login">
+              <v-text-field v-model="username" label="Username" required></v-text-field>
+              <v-text-field v-model="password" label="Password" type="password" required></v-text-field>
+              <v-btn type="submit" color="primary">Login</v-btn>
+            </form>
+          </v-container>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
   </v-app>
 </template>
 
 <script>
 export default {
-  components: {},
   data() {
     return {
       drawer: false,
+      showLoginForm: false,
       username: "",
+      password: ""
     };
   },
   methods: {
-    handleLoginSuccess(username) {
-      this.username = username;
-      this.showLoginModal = false;
-    },
-    logout() {
-      localStorage.removeItem("username");
-    },
-  },
+    login() {
+      // Realiza la lógica de inicio de sesión aquí
+      if (this.username === "admin" && this.password === "password") {
+        // Login exitoso
+        this.$emit("login-success", this.username); // Emitir el evento de inicio de sesión exitoso
+        this.showLoginForm = false; // Cerrar el modal de inicio de sesión
+      } else {
+        // Credenciales inválidas
+        alert("Credenciales inválidas. Por favor, inténtalo nuevamente.");
+      }
+    }
+  }
 };
 </script>

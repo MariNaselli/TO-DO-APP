@@ -13,12 +13,14 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    component: TaskEdit
+    component: LoginForm
   },
   {
     path: '/login',
-    component: LoginForm
+    name: 'Login',
+    component: LoginForm,
   },
+ 
   {
     path: '/task/list',
     component: TaskList
