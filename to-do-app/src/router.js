@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 // Importa tus componentes aquí
 import TaskList from './components/TaskList.vue';
 import TaskEdit from './components/TaskEdit.vue';
+import LoginForm from './components/LoginForm.vue';
 
 // Instala Vue Router
 Vue.use(VueRouter);
@@ -15,12 +16,17 @@ const routes = [
     component: TaskEdit
   },
   {
+    path: '/login',
+    component: LoginForm
+  },
+  {
     path: '/task/list',
     component: TaskList
   },
   {
     path: '/task/new',
-    component: TaskEdit
+    component: TaskEdit,
+    name: 'TaskNew'
   },
   {
     path: '/task/:id',

@@ -1,18 +1,6 @@
 {
   "tasks": [
     {
-      "id": 4,
-      "name": "PERMITIR LOGUEARSE. SI NO EXISTE, ENVIAR PERSONA LOGUEADA",
-      "person": "Mariana",
-      "status": "New"
-    },
-    {
-      "id": 5,
-      "name": "LLENAR LISTA DESPLEGABLE CON PERSONAS DE LA API",
-      "person": "Mariana",
-      "status": "New"
-    },
-    {
       "id": 6,
       "name": "HACER UN PUT A LA API PARA ACTUALIZAR EL STATUS. ESTO PERMITIRA ELIMINAR O ARCHIVAR TASKS",
       "person": "Mariana",
@@ -21,12 +9,6 @@
     {
       "id": 7,
       "name": "HACER  MULTILINE ESTE CAMPO DONDE ESCRIBO LAS TASK PORQUE SINO NO VEO LO QUE ESCRIBO hola",
-      "person": "Mariana",
-      "status": "New"
-    },
-    {
-      "id": 8,
-      "name": "ddddddddaaaa",
       "person": "Mariana",
       "status": "New"
     },
@@ -56,30 +38,6 @@
       "status": "New"
     },
     {
-      "id": 13,
-      "name": "holaaaassss",
-      "person": "Mariana",
-      "status": "New"
-    },
-    {
-      "id": 14,
-      "name": "dddd",
-      "person": "Mariana",
-      "status": "New"
-    },
-    {
-      "id": 15,
-      "name": "sssssss",
-      "person": "Mariana",
-      "status": "New"
-    },
-    {
-      "id": 16,
-      "name": "ssss",
-      "person": "Mariana",
-      "status": "New"
-    },
-    {
       "id": 17,
       "name": "hola mi amorcito",
       "person": "Ulises",
@@ -88,48 +46,6 @@
     {
       "id": 18,
       "name": "mari",
-      "person": "Ulises",
-      "status": "New"
-    },
-    {
-      "id": 19,
-      "name": "ssss",
-      "person": "Ulises",
-      "status": "New"
-    },
-    {
-      "id": 20,
-      "name": "ssss",
-      "person": "Ulises",
-      "status": "New"
-    },
-    {
-      "id": 21,
-      "name": "ssssssssssssssssssssssssssssssssss",
-      "person": "Mariana",
-      "status": "New"
-    },
-    {
-      "id": 22,
-      "name": "sss",
-      "person": "Ulises",
-      "status": "New"
-    },
-    {
-      "id": 23,
-      "name": "fffff",
-      "person": "Ulises",
-      "status": "New"
-    },
-    {
-      "id": 24,
-      "name": "mmm",
-      "person": "Ulises",
-      "status": "New"
-    },
-    {
-      "id": 25,
-      "name": "ssss",
       "person": "Ulises",
       "status": "New"
     }
