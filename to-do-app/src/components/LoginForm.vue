@@ -14,10 +14,8 @@
             ></v-text-field>
             <v-text-field
               v-model="password"
-              :rules="[(v) => !!v || 'Password is required']"
               label="Password"
               type="password"
-              required
               autocomplete="off"
             ></v-text-field>
 
@@ -37,7 +35,7 @@ export default {
   data() {
     return {
       username: "",
-      password: "",
+      password: "****",
     };
   },
 
@@ -51,7 +49,7 @@ export default {
 
         this.$router.push("/task/list");
       } else {
-        alert("Credenciales inválidas. Por favor, inténtalo nuevamente.");
+        alert("Invalid credentials. Please try again.");
       }
     },
   },

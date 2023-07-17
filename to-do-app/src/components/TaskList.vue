@@ -60,7 +60,7 @@
         </v-list-item-content>
       </v-list-item>
     </v-list>
-    <!-- Modal de confirmación de eliminación -->
+  
     <v-dialog v-model="confirmDialog" max-width="400">
       <v-card>
         <v-card-title class="headline">Confirm</v-card-title>
@@ -75,6 +75,7 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+
   </div>
 </template>
 
@@ -132,9 +133,9 @@ export default {
           this.selectedStatus,
           this.search
         );
-        this.filteredTasks = this.tasks; // Inicialmente, mostrar todas las tareas
+        this.filteredTasks = this.tasks;
       } catch (error) {
-        console.log("Error al obtener las tareas:", error);
+        console.log("Error:", error);
       }
     },
     async editTask(task) {
@@ -145,7 +146,7 @@ export default {
       try {
         task.status = this.newStatus;
         await api.updateTask(task);
-        await this.fetchTasks(); // Actualizar la lista de tareas después de eliminar una
+        await this.fetchTasks();
       } catch (error) {
         console.log("Error:", error);
       }
@@ -171,8 +172,8 @@ export default {
     },
     async confirmDialogClick() {
       await this.changeStatusTask(this.taskToChange, this.newStatus);
-      this.confirmDialog = false; // Oculta el modal de confirmación
-      this.taskToChange = null; // Borra la tarea que se iba a eliminar
+      this.confirmDialog = false; 
+      this.taskToChange = null; 
     },
     async filterTasks() {
       const desiredRoutePath = `/task/list/${this.selectedStatus.toLowerCase()}`;
@@ -184,16 +185,16 @@ export default {
   },
   watch: {
     search: {
-      handler: "filterTasks", // Observar cambios en el texto de búsqueda
-      immediate: true, // Ejecutar el watcher cuando el componente se monta por primera vez
+      handler: "filterTasks", 
+      immediate: true, 
     },
     selectedPerson: {
-      handler: "filterTasks", // Observar cambios en la lista de personas
-      deep: true, // Observar cambios profundos en la lista de personas
+      handler: "filterTasks", 
+      deep: true, 
     },
     selectedStatus: {
-      handler: "filterTasks", // Observar cambios en la lista de estados
-      deep: true, // Observar cambios profundos en la lista de estados
+      handler: "filterTasks", 
+      deep: true, 
     },
   },
 };

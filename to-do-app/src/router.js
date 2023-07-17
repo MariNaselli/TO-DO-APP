@@ -1,15 +1,12 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-
-// Importa tus componentes aquí
 import TaskList from './components/TaskList.vue';
 import TaskEdit from './components/TaskEdit.vue';
 import LoginForm from './components/LoginForm.vue';
 
-// Instala Vue Router
+
 Vue.use(VueRouter);
 
-// Define las rutas
 const routes = [
   {
     path: '/',
@@ -42,7 +39,6 @@ const routes = [
   }
 ];
 
-// Crea la instancia del enrutador
 const router = new VueRouter({
   mode: 'history',
   routes

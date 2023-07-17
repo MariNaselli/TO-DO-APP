@@ -58,9 +58,6 @@ export default {
       this.$router.push("/login");
     },
   },
-  async mounted() {
-    //this.localStorageUsername();
-  },
   watch: {
     $route() {
       this.username = localStorage.getItem("person");

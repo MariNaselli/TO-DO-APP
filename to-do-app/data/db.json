@@ -20,21 +20,27 @@
   "tasks": [
     {
       "id": 1,
-      "name": "ESTA ES MI TAREA",
+      "name": "TEST TASK",
       "person": "MARIANA",
       "status": "New"
     },
     {
       "id": 2,
-      "name": "Otra tarea de prueba",
-      "person": "MARIANA",
-      "status": "Completed"
+      "name": "ANOTHER TEST TASK",
+      "person": "ULISES",
+      "status": "New"
     },
     {
       "id": 3,
-      "name": "PRUEBA",
+      "name": "TEST TASK ",
+      "person": "PEDRO",
+      "status": "Completed"
+    },
+    {
+      "id": 4,
+      "name": "....",
       "person": "ULISES",
-      "status": "Deleted"
+      "status": "New"
     }
   ],
   "persons": [
@@ -44,7 +50,11 @@
     },
     {
       "name": "ULISES",
-      "id": 5
+      "id": 2
+    },
+    {
+      "name": "PEDRO",
+      "id": 3
     }
   ]
 }
