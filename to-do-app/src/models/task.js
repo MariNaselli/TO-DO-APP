@@ -4,7 +4,6 @@ export class Task {
     this.name = name;
     this.person = person;
     this.status = status;
-  
   }
 }
   

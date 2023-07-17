@@ -9,6 +9,8 @@
             :rules="[(v) => !!v || 'Person is required']"
             label="Person"
             required
+            variant="underlined"
+            item-text="name"
           ></v-select>
           <v-textarea
             v-model="task.name"
@@ -24,6 +26,8 @@
             :items="statusList"
             :rules="[(v) => !!v || 'Status is required']"
             label="Status"
+            variant="underlined"
+            item-text="name"
             required
           ></v-select>
         </v-container>
@@ -53,7 +57,7 @@
 </template>
 <script>
 import router from "../router";
-import api from "../api.js";
+import api from "../services/api.js";
 import { VAlert } from "vuetify/lib";
 
 export default {
@@ -63,8 +67,8 @@ export default {
   },
   data() {
     return {
-      statusList: ["New", "Done", "Archived", "Deleted"],
-      personList: ["Mariana", "Ulises", "Cataldo"],
+      statusList: [],
+      personList: [],
       task: {
         id: 0,
         name: "",
@@ -76,7 +80,6 @@ export default {
   },
   methods: {
     async submitTask() {
-      console.log("Submit Task function called");
       if (this.task.name) {
         try {
           if (this.task.id === 0) {
@@ -129,14 +132,33 @@ export default {
         console.log("Error al obtener la tarea:", error);
       }
     },
+    async fetchStatus() {
+      try {
+        this.statusList = await api.fetchStatus();
+      } catch (error) {
+        console.log("Error al obtener las tareas:", error);
+        throw error;
+      }
+    },
+    async fetchPersons() {
+      try {
+        this.personList = await api.fetchPersons();
+      } catch (error) {
+        console.log("Error:", error);
+        throw error;
+      }
+    },
   },
   async mounted() {
+    await this.fetchStatus();
+    await this.fetchPersons();
     await this.fetchTask();
   },
   watch: {
     "$route.params.id": {
       immediate: true,
       handler() {
+        this.getPersons();
         this.fetchTask();
       },
     },

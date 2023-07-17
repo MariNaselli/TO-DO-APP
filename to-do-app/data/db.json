@@ -1,0 +1,44 @@
+{
+  "status": [
+    {
+      "id": 1,
+      "name": "New"
+    },
+    {
+      "id": 2,
+      "name": "Completed"
+    },
+    {
+      "id": 3,
+      "name": "Archived"
+    },
+    {
+      "id": 4,
+      "name": "Deleted"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "name": "aaaaa",
+      "person": "MARIANA",
+      "status": "Archived"
+    },
+    {
+      "id": 2,
+      "name": "prueba",
+      "person": "MARIANA",
+      "status": "Archived"
+    }
+  ],
+  "persons": [
+    {
+      "name": "MARIANA",
+      "id": 1
+    },
+    {
+      "name": "ULISES",
+      "id": 5
+    }
+  ]
+}

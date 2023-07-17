@@ -26,6 +26,11 @@ const routes = [
     component: TaskList
   },
   {
+    path: '/task/list/:status',
+    name: 'TaskList',
+    component: TaskList,
+  },
+  {
     path: '/task/new',
     component: TaskEdit,
     name: 'TaskNew'

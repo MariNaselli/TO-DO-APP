@@ -1,47 +1,70 @@
-<!-- <template>
-    <div>
-      <h2>Iniciar sesión</h2>
-      <form @submit.prevent="login">
-        <label for="username">Usuario:</label>
-        <input type="text" id="username" v-model="username" required>
-  
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" v-model="password" required>
-  
-        <button type="submit">Iniciar sesión</button>
-      </form>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        username: '',
-        password: ''
-      };
-    },
-    methods: {
-      login() {
-        // Aquí puedes realizar la lógica de inicio de sesión con los datos ingresados
-        // por el usuario, como enviar una solicitud HTTP a un servidor API.
-        // Puedes usar la propiedad `this.username` y `this.password` para acceder a los valores ingresados.
-  
-        // Ejemplo básico para mostrar un mensaje en la consola con los datos ingresados:
-        console.log('Iniciando sesión...');
-        console.log('Usuario:', this.username);
-        console.log('Contraseña:', this.password);
+<template>
+  <div>
+    <v-card class="login-card">
+      <v-card-title class="headline">Login</v-card-title>
+      <v-card-text>
+        <v-container>
+          <form @submit.prevent="login">
+            <v-text-field
+              v-model="username"
+              :rules="[(v) => !!v || 'Username is required']"
+              label="Username"
+              required
+              autocomplete="off"
+            ></v-text-field>
+            <v-text-field
+              v-model="password"
+              :rules="[(v) => !!v || 'Password is required']"
+              label="Password"
+              type="password"
+              required
+              autocomplete="off"
+            ></v-text-field>
+
+            <div class="button-container">
+              <v-btn type="submit" color="primary">Login</v-btn>
+            </div>
+          </form>
+        </v-container>
+      </v-card-text>
+    </v-card>
+  </div>
+</template>
+
+<script>
+import api from "../services/api.js";
+export default {
+  data() {
+    return {
+      username: "",
+      password: "",
+    };
+  },
+
+  methods: {
+    async login() {
+      if (this.username) {
+        let person = { name: this.username };
+        const createdPerson = await api.createPerson(person);
+        console.log(createdPerson);
+        localStorage.setItem("person", this.username);
+
+        this.$router.push("/task/list");
+      } else {
+        alert("Credenciales inválidas. Por favor, inténtalo nuevamente.");
       }
-    }
-  };
-  </script>
-   -->
-  
-  
-  
-  
-  
-  
-  
-  
-  
+    },
+  },
+};
+</script>
+<style scoped>
+.login-card {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.button-container {
+  text-align: right;
+  margin-top: 20px;
+}
+</style>
