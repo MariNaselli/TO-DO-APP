@@ -158,7 +158,7 @@ export default {
     "$route.params.id": {
       immediate: true,
       handler() {
-        this.getPersons();
+        this.fetchPersons();
         this.fetchTask();
       },
     },

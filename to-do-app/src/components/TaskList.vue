@@ -34,11 +34,13 @@
         <v-list-item-content>
           <v-card class="task-card">
             <v-card-text class="d-flex align-center">
-              <v-list-item-title class="task-name">{{
-                task.name
-              }}</v-list-item-title>
+              <v-list-item-title class="task-name"
+                >{{ task.name }}
+                <br />
+                <span class="task-person">{{ task.person }}</span>
+              </v-list-item-title>
               <v-list-item-subtitle class="task-person">{{
-                task.person
+                task.status
               }}</v-list-item-subtitle>
               <v-spacer></v-spacer>
               <v-btn icon @click="editTask(task)">
@@ -50,6 +52,9 @@
               <v-btn icon @click="archivedTaskConfirmation(task)">
                 <v-icon>mdi-archive</v-icon>
               </v-btn>
+              <v-btn icon @click="confirmedTaskConfirmation(task)">
+                <v-icon>mdi-check</v-icon>
+              </v-btn>
             </v-card-text>
           </v-card>
         </v-list-item-content>
@@ -60,7 +65,8 @@
       <v-card>
         <v-card-title class="headline">Confirm</v-card-title>
         <v-card-text>
-          Are you sure you want to change to <b>{{ newStatus }}</b>?
+          Are you sure you want to change to <b>{{ newStatus }}</b
+          >?
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
@@ -145,18 +151,23 @@ export default {
       }
     },
     archivedTaskConfirmation(task) {
-      this.newStatus = 'Archived';
-      this.taskToChange = task; 
+      this.newStatus = "Archived";
+      this.taskToChange = task;
       this.confirmDialog = true;
     },
     deleteTaskConfirmation(task) {
-      this.newStatus = 'Deleted';
-      this.taskToChange = task; 
+      this.newStatus = "Deleted";
+      this.taskToChange = task;
+      this.confirmDialog = true;
+    },
+    confirmedTaskConfirmation(task) {
+      this.newStatus = "Completed";
+      this.taskToChange = task;
       this.confirmDialog = true;
     },
     cancelDialogClick() {
       this.confirmDialog = false;
-      this.taskToChange = null; 
+      this.taskToChange = null;
     },
     async confirmDialogClick() {
       await this.changeStatusTask(this.taskToChange, this.newStatus);
@@ -200,6 +211,8 @@ export default {
 
 .task-person {
   margin-left: 8px;
+  font-size: 12px;
+  font-style: italic;
 }
 
 .align-center {
