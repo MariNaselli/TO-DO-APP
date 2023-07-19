@@ -32,6 +32,7 @@
       </v-menu>
       <v-btn v-else router to="/login" text>Login</v-btn>
     </v-app-bar>
+
     <v-main>
       <router-view></router-view>
     </v-main>
@@ -43,21 +44,20 @@ export default {
   data() {
     return {
       drawer: false,
-      username: "",
+      username: this.getUserName(),
     };
   },
-  computed: {
-    localStorageUsername() {
+  methods: {
+    getUserName() {
       return localStorage.getItem("person");
     },
-  },
-  methods: {
     logout() {
       localStorage.removeItem("person");
       this.username = "";
       this.$router.push("/login");
     },
   },
+
   watch: {
     $route() {
       this.username = localStorage.getItem("person");

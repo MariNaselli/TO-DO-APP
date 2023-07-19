@@ -47,23 +47,24 @@ export default {
   async fetchTasks(person, status, search) {
     try {
       let params = "";
-      if (person && person != "ALL") {
+      if (person && person !== "ALL") {
         params = params + "&person=" + person;
       }
-      if (status && status != "ALL") {
+      if (status && status !== "ALL") {
         params = params + "&status=" + status;
       }
       if (search) {
-        params = params + "&name=" + search;
+        params = params + "&q=" + search; // Utilizamos el operador "q" para la búsqueda por cadena parcial en el campo "name"
       }
-
+  
       const response = await axios.get(`${BASE_URL}/tasks?${params}`);
       return response.data;
     } catch (error) {
       console.log("Error:", error);
       throw error;
     }
-  },
+  }
+  ,
   async createTask(task) {
     try {
       const response = await axios.post(`${BASE_URL}/tasks`, task);

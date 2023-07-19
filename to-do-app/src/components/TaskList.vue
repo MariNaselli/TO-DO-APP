@@ -37,7 +37,7 @@
               <v-list-item-title class="task-name"
                 >{{ task.name }}
                 <br />
-                <span class="task-person">{{ task.person }}</span>
+                <span class="task-person">{{ task.person.name }}</span>
               </v-list-item-title>
               <v-list-item-subtitle class="task-person">{{
                 task.status
@@ -60,7 +60,7 @@
         </v-list-item-content>
       </v-list-item>
     </v-list>
-  
+
     <v-dialog v-model="confirmDialog" max-width="400">
       <v-card>
         <v-card-title class="headline">Confirm</v-card-title>
@@ -70,12 +70,11 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="red" text @click="cancelDialogClick">Cancelar</v-btn>
-          <v-btn color="green" text @click="confirmDialogClick">Aceptar</v-btn>
+          <v-btn color="red" text @click="cancelDialogClick">Cancel</v-btn>
+          <v-btn color="green" text @click="confirmDialogClick">Acept</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
-
   </div>
 </template>
 
@@ -146,6 +145,9 @@ export default {
       try {
         task.status = this.newStatus;
         await api.updateTask(task);
+        this.$toast.success(
+          "Task updated successfully to " + this.newStatus + "!"
+        );
         await this.fetchTasks();
       } catch (error) {
         console.log("Error:", error);
@@ -172,8 +174,8 @@ export default {
     },
     async confirmDialogClick() {
       await this.changeStatusTask(this.taskToChange, this.newStatus);
-      this.confirmDialog = false; 
-      this.taskToChange = null; 
+      this.confirmDialog = false;
+      this.taskToChange = null;
     },
     async filterTasks() {
       const desiredRoutePath = `/task/list/${this.selectedStatus.toLowerCase()}`;
@@ -185,16 +187,16 @@ export default {
   },
   watch: {
     search: {
-      handler: "filterTasks", 
-      immediate: true, 
+      handler: "filterTasks",
+      immediate: true,
     },
     selectedPerson: {
-      handler: "filterTasks", 
-      deep: true, 
+      handler: "filterTasks",
+      deep: true,
     },
     selectedStatus: {
-      handler: "filterTasks", 
-      deep: true, 
+      handler: "filterTasks",
+      deep: true,
     },
   },
 };
