@@ -19,24 +19,50 @@
   ],
   "tasks": [
     {
-      "id": 1,
-      "name": "TEST TASK",
-      "person": "MARIANA",
-      "status": "Completed"
+      "id": 4,
+      "name": "HOLA COMO ESTAS ",
+      "person": {
+        "name": "MARIANA",
+        "id": 1
+      },
+      "status": "Deleted"
     },
     {
-      "id": 2,
-      "name": "ANOTHER TEST TASK",
-      "person": "ULISES",
-      "status": "Completed"
+      "id": 5,
+      "name": "QUE HACES COMO CUANDO DONDE",
+      "person": {
+        "name": "MARIANA",
+        "id": 1
+      },
+      "status": "New"
     },
     {
-      "id": 3,
-      "name": "TEST TASK ",
-      "person": "PEDRO",
-      "status": "Completed"
+      "id": 6,
+      "name": "EEEE",
+      "person": {
+        "name": "MARIANA",
+        "id": 1
+      },
+      "status": "New"
+    },
+    {
+      "id": 7,
+      "name": "SSS",
+      "person": {
+        "name": "MARIANA",
+        "id": 1
+      },
+      "status": "New"
+    },
+    {
+      "id": 8,
+      "name": "EEEEE",
+      "person": {
+        "name": "MARIANA",
+        "id": 1
+      },
+      "status": "New"
     }
-  
   ],
   "persons": [
     {
@@ -51,6 +77,5 @@
       "name": "PEDRO",
       "id": 3
     }
-  
   ]
 }

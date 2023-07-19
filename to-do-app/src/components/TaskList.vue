@@ -37,7 +37,7 @@
               <v-list-item-title class="task-name"
                 >{{ task.name }}
                 <br />
-                <span class="task-person">{{ task.person }}</span>
+                <span class="task-person">{{ task.person.name }}</span>
               </v-list-item-title>
               <v-list-item-subtitle class="task-person">{{
                 task.status
