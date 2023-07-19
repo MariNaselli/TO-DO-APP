@@ -22,13 +22,13 @@
       "id": 1,
       "name": "TEST TASK",
       "person": "MARIANA",
-      "status": "New"
+      "status": "Completed"
     },
     {
       "id": 2,
       "name": "ANOTHER TEST TASK",
       "person": "ULISES",
-      "status": "New"
+      "status": "Completed"
     },
     {
       "id": 3,
@@ -39,6 +39,234 @@
     {
       "id": 4,
       "name": "....",
+      "person": "ULISES",
+      "status": "Completed"
+    },
+    {
+      "id": 5,
+      "name": "S",
+      "person": "MARIANA",
+      "status": "New"
+    },
+    {
+      "id": 6,
+      "name": "sss",
+      "person": "ULISES",
+      "status": "New"
+    },
+    {
+      "id": 7,
+      "name": "ddd",
+      "person": "MARIANA",
+      "status": "New"
+    },
+    {
+      "id": 8,
+      "name": "ss",
+      "person": "ULISES",
+      "status": "New"
+    },
+    {
+      "id": 9,
+      "name": "sss",
+      "person": "MARIANA",
+      "status": "New"
+    },
+    {
+      "id": 10,
+      "name": "SSS",
+      "person": "ULISES",
+      "status": "New"
+    },
+    {
+      "id": 11,
+      "name": "SSS",
+      "person": "MARIANA",
+      "status": "New"
+    },
+    {
+      "id": 12,
+      "name": "FFF",
+      "person": "ULISES",
+      "status": "New"
+    },
+    {
+      "id": 13,
+      "name": "FFFF",
+      "person": "ULISES",
+      "status": "New"
+    },
+    {
+      "id": 14,
+      "name": "SS",
+      "person": "ULISES",
+      "status": "New"
+    },
+    {
+      "id": 15,
+      "name": "SS",
+      "person": "MARIANA",
+      "status": "New"
+    },
+    {
+      "id": 16,
+      "name": "GGG",
+      "person": "ULISES",
+      "status": "New"
+    },
+    {
+      "id": 17,
+      "name": "SSS",
+      "person": "MARIANA",
+      "status": "New"
+    },
+    {
+      "id": 18,
+      "name": "SSS",
+      "person": "MARIANA",
+      "status": "New"
+    },
+    {
+      "id": 19,
+      "name": "S",
+      "person": "MARIANA",
+      "status": "New"
+    },
+    {
+      "id": 20,
+      "name": "SS",
+      "person": "ULISES",
+      "status": "New"
+    },
+    {
+      "id": 21,
+      "name": "SSSS",
+      "person": "fdfff",
+      "status": "New"
+    },
+    {
+      "id": 22,
+      "name": "XXX",
+      "person": "MARIANA",
+      "status": "New"
+    },
+    {
+      "id": 23,
+      "name": "SSS",
+      "person": "ULISES",
+      "status": "New"
+    },
+    {
+      "id": 24,
+      "name": "SSSS",
+      "person": "MARIANA",
+      "status": "New"
+    },
+    {
+      "id": 25,
+      "name": "HH",
+      "person": "ULISES",
+      "status": "New"
+    },
+    {
+      "id": 26,
+      "name": "pruea",
+      "person": "ULISES",
+      "status": "New"
+    },
+    {
+      "id": 27,
+      "name": "assaas",
+      "person": "ULISES",
+      "status": "New"
+    },
+    {
+      "id": 28,
+      "name": "z<",
+      "person": "ULISES",
+      "status": "New"
+    },
+    {
+      "id": 29,
+      "name": "aaaa",
+      "person": "ULISES",
+      "status": "New"
+    },
+    {
+      "id": 30,
+      "name": "ssss",
+      "person": "ULISES",
+      "status": "New"
+    },
+    {
+      "id": 31,
+      "name": "aaaa",
+      "person": "ULISES",
+      "status": "Deleted"
+    },
+    {
+      "id": 32,
+      "name": "zas",
+      "person": "ULISES",
+      "status": "Deleted"
+    },
+    {
+      "id": 33,
+      "name": "ggg",
+      "person": "MARIANA",
+      "status": "Deleted"
+    },
+    {
+      "id": 34,
+      "name": "fff",
+      "person": "ULISES",
+      "status": "New"
+    },
+    {
+      "id": 35,
+      "name": "hh",
+      "person": "ULISES",
+      "status": "New"
+    },
+    {
+      "id": 36,
+      "name": "s",
+      "person": "ULISES",
+      "status": "New"
+    },
+    {
+      "id": 37,
+      "name": "sss",
+      "person": "ULISES",
+      "status": "New"
+    },
+    {
+      "id": 38,
+      "name": "s",
+      "person": "MARIANA",
+      "status": "New"
+    },
+    {
+      "id": 39,
+      "name": "sss",
+      "person": "ULISES",
+      "status": "New"
+    },
+    {
+      "id": 40,
+      "name": "ddd",
+      "person": "ULISES",
+      "status": "New"
+    },
+    {
+      "id": 41,
+      "name": "hh",
+      "person": "MARIANA",
+      "status": "New"
+    },
+    {
+      "id": 42,
+      "name": "DDD",
       "person": "ULISES",
       "status": "New"
     }
@@ -55,6 +283,58 @@
     {
       "name": "PEDRO",
       "id": 3
+    },
+    {
+      "name": "fdfff",
+      "id": 4
+    },
+    {
+      "name": "sss",
+      "id": 5
+    },
+    {
+      "name": "SSS",
+      "id": 6
+    },
+    {
+      "name": "GGGG",
+      "id": 7
+    },
+    {
+      "name": "SS",
+      "id": 8
+    },
+    {
+      "name": "SSSS",
+      "id": 9
+    },
+    {
+      "name": "DDDD",
+      "id": 10
+    },
+    {
+      "name": "admin",
+      "id": 11
+    },
+    {
+      "name": "ULISES}",
+      "id": 12
+    },
+    {
+      "name": "ukli",
+      "id": 13
+    },
+    {
+      "name": "pepe",
+      "id": 14
+    },
+    {
+      "name": "kk",
+      "id": 15
+    },
+    {
+      "name": "f",
+      "id": 16
     }
   ]
 }

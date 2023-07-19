@@ -15,11 +15,15 @@
           <v-textarea
             v-model="task.name"
             color="primary"
+            :rules="[(v) => !!v || 'Task is required']"
             label="Task name"
             variant="underlined"
             auto-grow
             rows="2"
             class="textarea"
+            required
+            
+
           ></v-textarea>
           <v-select
             v-model="task.status"
@@ -36,35 +40,22 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn type="submit" color="success">
+          <v-btn type="submit" color="success" :disabled="isLoading">
             Save
             <v-icon icon="mdi-chevron-right" end></v-icon>
           </v-btn>
         </v-card-actions>
       </v-card>
     </v-form>
-    
-    <v-alert
-      v-if="showSuccessMessage"
-      type="success"
-      variant="outlined"
-      dismissible
-      @input="showSuccessMessage = false"
-    >
-      Task created successfully!
-    </v-alert>
   </div>
 </template>
 <script>
 import router from "../router";
 import api from "../services/api.js";
-import { VAlert } from "vuetify/lib";
 
 export default {
   name: "TaskEdit",
-  components: {
-    VAlert,
-  },
+  components: {},
   data() {
     return {
       statusList: [],
@@ -75,28 +66,31 @@ export default {
         person: "",
         status: "New",
       },
-      showSuccessMessage: false, 
+      isLoading: false,
     };
   },
+
   methods: {
     async submitTask() {
       if (this.task.name) {
+        this.isLoading = true;
+        const delay = 500;
         try {
           if (this.task.id === 0) {
-            const createdTask = await api.createTask(this.task);
-            this.$emit("add", createdTask);
-            this.showSuccessMessage = true;
-            console.log("Task created successfully!");
+            await api.createTask(this.task);
+            this.$toast.success("Task created successfully!");
+            setTimeout(() => {
+              this.isLoading = false;
+              router.push("/task/list");
+            }, delay);
           } else {
             await api.updateTask(this.task);
+            this.$toast.success("Task updated successfully!");
+            setTimeout(() => {
+              this.isLoading = false;
+              router.push("/task/list");
+            }, delay);
           }
-          this.task = {
-            id: 0,
-            name: "",
-            person: "",
-            status: "New",
-          };
-          router.push("/task/list");
         } catch (error) {
           console.log("Error:", error);
         }
@@ -107,21 +101,6 @@ export default {
         const taskId = this.$route.params.id;
         if (taskId) {
           this.task = await api.getTaskById(taskId);
-        } else {
-          this.task = {
-            id: 0,
-            name: "",
-            person: "",
-            status: "New",
-          };
-        }
-        if (this.$route.name === "TaskNew") {
-          this.task = {
-            id: 0,
-            name: "",
-            person: "",
-            status: "New",
-          };
         }
       } catch (error) {
         console.log("Error:", error);
@@ -138,6 +117,11 @@ export default {
     async fetchPersons() {
       try {
         this.personList = await api.fetchPersons();
+        if (localStorage.getItem("person")) {
+          const personLocalStorage = localStorage.getItem("person");
+          const personFound = this.personList.find(t => t.name === personLocalStorage)
+          this.task.person = personFound;
+        }
       } catch (error) {
         console.log("Error:", error);
         throw error;
